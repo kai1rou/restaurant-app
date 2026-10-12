@@ -32,17 +32,12 @@ export const LoginPage = () => {
         setError(null);
 
         try {
-            // Здесь будет реальный запрос к API
-            // const response = await axiosInstance.post('/auth/login', data);
-
-            // Имитация успешного ответа от сервера
             const mockResponse = {
                 accessToken: 'mock-access-token-123',
-                refreshToken: 'mock-refresh-token-456',
-                user: { id: '1', email: data.email, role: 'manager' as const },
+                user: { id: '1', email: data.email, role: 'owner' as const },
             };
 
-            storage.setTokens(mockResponse.accessToken, mockResponse.refreshToken);
+            storage.setAccessToken(mockResponse.accessToken);
             setUser(mockResponse.user);
 
             navigate('/');
